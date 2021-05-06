@@ -72,7 +72,8 @@ function addMeal(mealData, random = false) {  // вывод рандомного
         fetchFavoriteMeals(); // запускаем функцию вывода любимых блюд
     });
 
-    meal.addEventListener('click', () => { // на блюда вешаем прослушиватель
+    const mealHeader = meal.querySelector('.meal__header');
+    mealHeader.addEventListener('click', () => { // на блюда вешаем прослушиватель
         showMealInfo(mealData); // выводим рецепт блюда
     });
 
@@ -168,7 +169,7 @@ function showMealInfo(mealData) {  // вывод рецепта блюда
             class="meal__img"
         />
         <p class="meal__text">
-            ${mealData.strInstructions}
+            ${marked(mealData.strInstructions)}
         </p>
         <h3>Ingredients / Measure</h3>
         <ul class="meal__ingredients">
